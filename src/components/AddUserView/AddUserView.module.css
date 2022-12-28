@@ -1,0 +1,21 @@
+body {
+  background-color: darkslategray;
+}
+
+.form {
+  text-align: center;
+}
+
+.labelItem {
+  text-align: center;
+}
+
+.inputItem {
+  display: flax;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 40px;
+}
