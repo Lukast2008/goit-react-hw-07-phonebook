@@ -1,13 +1,26 @@
-import HomeView from 'components/HomeView/HomeView';
-import AddContact from 'components/AddUserView/AddUserView';
-import Filter from 'components/Filter/Filter';
+import { useEffect } from 'react';
+import { Phonebook } from './Phonebook/Phonebook';
+import { ContactList } from './Contacts/Contacts';
+
+import { FilterContacts } from './Filter/Filter';
+import styles from './Phonebook/styles.module.css';
+import { useDispatch } from 'react-redux';
+
+import { fetchContacts } from 'redux/contactsOperations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
-    <>
-      <AddContact />
-      <Filter />
-      <HomeView />
-    </>
+    <div className={styles.container}>
+      <Phonebook />
+      <h2 className={styles.title}>Contacts</h2>
+      <FilterContacts />
+      <ContactList />
+    </div>
   );
 };
